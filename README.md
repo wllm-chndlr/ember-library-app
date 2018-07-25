@@ -1,1 +1,1 @@
-# emberock
+# ember-library-app
