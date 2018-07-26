@@ -1,1 +1,0 @@
-# ember-library-app
