@@ -1,51 +1,67 @@
 'use strict';
 
 module.exports = function(environment) {
-  let ENV = {
-    modulePrefix: 'library-app',
-    environment,
-    rootURL: '/',
-    locationType: 'auto',
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      },
-      EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
-    },
+	let ENV = {
+		modulePrefix: 'library-app',
+		environment,
+		rootURL: '/',
+		locationType: 'auto',
+		firebase: {
+			apiKey: "AIzaSyCYTgWiUYM8T-iIN1HwtzahntYZVSGoo0Y",
+			authDomain: "library-app-ab038.firebaseapp.com",
+			databaseURL: "https://library-app-ab038.firebaseio.com",
+			projectId: "library-app-ab038",
+			storageBucket: "library-app-ab038.appspot.com",
+			messagingSenderId: "861819961713"
+		},
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
-  };
+			// if using ember-cli-content-security-policy
+		contentSecurityPolicy: {
+			'script-src': "'self' 'unsafe-eval' apis.google.com",
+			'frame-src': "'self' https://*.firebaseapp.com",
+			'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+		},
+		
+		EmberENV: {
+			FEATURES: {
+				// Here you can enable experimental features on an ember canary build
+				// e.g. 'with-controller': true
+			},
+			EXTEND_PROTOTYPES: {
+				// Prevent Ember Data from overriding Date.parse.
+				Date: false
+			}
+		},
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
-    ENV.APP.LOG_TRANSITIONS = true;
-    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    ENV.APP.LOG_VIEW_LOOKUPS = true;
-  }
+		APP: {
+			// Here you can pass flags/options to your application instance
+			// when it is created
+		}
+	};
 
-  if (environment === 'test') {
-    // Testem prefers this...
-    ENV.locationType = 'none';
+	if (environment === 'development') {
+		// ENV.APP.LOG_RESOLVER = true;
+		ENV.APP.LOG_ACTIVE_GENERATION = true;
+		ENV.APP.LOG_TRANSITIONS = true;
+		ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+		ENV.APP.LOG_VIEW_LOOKUPS = true;
+	}
 
-    // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+	if (environment === 'test') {
+		// Testem prefers this...
+		ENV.locationType = 'none';
 
-    ENV.APP.rootElement = '#ember-testing';
-    ENV.APP.autoboot = false;
-  }
+		// keep test console output quieter
+		ENV.APP.LOG_ACTIVE_GENERATION = false;
+		ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-  if (environment === 'production') {
-    // here you can enable a production-specific feature
-  }
+		ENV.APP.rootElement = '#ember-testing';
+		ENV.APP.autoboot = false;
+	}
 
-  return ENV;
+	if (environment === 'production') {
+		// here you can enable a production-specific feature
+	}
+
+	return ENV;
 };
